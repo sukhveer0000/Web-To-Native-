@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setDisplayShowTitleEnabled(false)
         binding.toolbarText.text = "WebToNative"
 
-        viewModel = ViewModelProvider(this)[WebUrlViewModel::class.java]
+        viewModel = ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory.getInstance(application))[WebUrlViewModel::class.java]
 
         adapter = ViewPagerAdapter(imageList)
         binding.viewPager.adapter = adapter

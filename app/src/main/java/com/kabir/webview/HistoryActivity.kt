@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.activity.SystemBarStyle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -12,11 +13,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kabir.webview.adapter.UrlHistoryAdapter
 import com.kabir.webview.databinding.ActivityHistoryBinding
+import com.kabir.webview.viewmodel.HistoryViewModel
 import com.kabir.webview.viewmodel.WebUrlViewModel
 
 class HistoryActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHistoryBinding
-    private lateinit var viewModel: WebUrlViewModel
+    private lateinit var viewModel: HistoryViewModel
     private lateinit var urlAdapter: UrlHistoryAdapter
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,9 +43,13 @@ class HistoryActivity : AppCompatActivity() {
             binding.historyToolbarText.text = "History"
         }
 
-        viewModel = ViewModelProvider(this)[WebUrlViewModel::class]
+        viewModel = ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory.getInstance(application))[HistoryViewModel::class]
+
         viewModel.allUrls.observe(this){ newList ->
             urlAdapter.update(newList)
+        }
+        viewModel.uploadStatus.observe(this){ status ->
+            Toast.makeText(this, "$status",  Toast.LENGTH_SHORT).show()
         }
 
     }
@@ -66,7 +72,7 @@ class HistoryActivity : AppCompatActivity() {
                 true
             }
             R.id.upload ->{
-
+                viewModel.uploadHistory()
                 true
             }
             else -> false
