@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:title="@string/delete_all"
+        android:id="@+id/deleteAll"
+        android:icon="@drawable/delete_24dp_e3e3e3_fill0_wght400_grad0_opsz24"
+        app:showAsAction="ifRoom"/>
+    <item android:title="@string/upload"
+        android:id="@+id/upload"
+        android:icon="@drawable/upload_24dp_e3e3e3_fill0_wght400_grad0_opsz24"
+        app:showAsAction="ifRoom"/>
+</menu>

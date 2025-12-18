@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">WebToNative</string>
+    <string name="menu">Menu</string>
+    <string name="upload">Upload</string>
+    <string name="delete_all">Delete All</string>
+    <string name="enter_url">Enter url</string>
+    <string name="open">Open</string>
+    <string name="https_webtonative_com">https://webtonative.com</string>
+    <string name="close">Close</string>
+    <string name="https">https://webtonative.com</string>
+</resources>
