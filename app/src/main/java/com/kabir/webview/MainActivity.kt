@@ -2,22 +2,15 @@ package com.kabir.webview
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
+import android.util.Patterns
 import android.view.Menu
 import android.view.MenuItem
-import android.webkit.WebViewClient
 import android.widget.Toast
 import androidx.activity.SystemBarStyle
-import androidx.activity.addCallback
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintAttribute
 import androidx.core.content.ContextCompat
-import androidx.core.view.MenuProvider
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.WindowInsetsControllerCompat
 import androidx.lifecycle.ViewModelProvider
 import com.kabir.webview.adapter.ViewPagerAdapter
 import com.kabir.webview.databinding.ActivityMainBinding
@@ -38,8 +31,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         enableEdgeToEdge(
             statusBarStyle = SystemBarStyle.light(
-                ContextCompat.getColor(this,R.color.blue),
-                ContextCompat.getColor(this,R.color.black)
+                ContextCompat.getColor(this, R.color.blue),
+                ContextCompat.getColor(this, R.color.black)
             )
         )
         setContentView(binding.root)
@@ -63,35 +56,45 @@ class MainActivity : AppCompatActivity() {
     private fun openUrl() {
         val url = binding.enterUrl.text.toString().trim()
         val timestamp = System.currentTimeMillis()
-        val webUrl = WebPage(url,timestamp)
 
-        if(url.isNotEmpty()){
 
+        if (url.isEmpty()) {
+            binding.enterUrl.error = "Empty Url!"
+            return
+        }
+        var formatedUrl = url
+
+        if (!formatedUrl.startsWith("http://") && !formatedUrl.startsWith("https://")) {
+            formatedUrl = "https://$formatedUrl"
+        }
+
+        if (Patterns.WEB_URL.matcher(formatedUrl).matches()) {
+
+            val webUrl = WebPage(formatedUrl, timestamp)
             viewModel.insertUrl(webUrl)
 
             val intent = Intent(this@MainActivity, WebPageActivity::class.java)
-            intent.putExtra(Constants.URL_KEY,url)
+            intent.putExtra(Constants.URL_KEY, formatedUrl)
             startActivity(intent)
-        }
-        else {
-            Toast.makeText(this@MainActivity, "Empty Url!", Toast.LENGTH_SHORT).show()
-            return
+        } else {
+            Toast.makeText(this@MainActivity, "Invalid Url input!", Toast.LENGTH_SHORT).show()
         }
     }
 
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.hitory_menu,menu)
+        menuInflater.inflate(R.menu.hitory_menu, menu)
         return true
     }
 
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when(item.itemId){
+        return when (item.itemId) {
             R.id.menu -> {
                 startActivity(Intent(this@MainActivity, HistoryActivity::class.java))
                 return true
             }
+
             else -> false
         }
     }
@@ -99,8 +102,8 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         //checking that we coming by close button
-        val shouldClear = intent.getBooleanExtra(Constants.CLEAR_TEXT,false)
-        if (shouldClear){
+        val shouldClear = intent.getBooleanExtra(Constants.CLEAR_TEXT, false)
+        if (shouldClear) {
             binding.enterUrl.text?.clear()
             //removing this extra so that if screen rotated and edit field should not clear
             intent.removeExtra(Constants.CLEAR_TEXT)

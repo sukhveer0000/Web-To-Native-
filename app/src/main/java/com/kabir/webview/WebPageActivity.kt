@@ -13,7 +13,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.kabir.webview.databinding.ActivityWebPageBinding
 import com.kabir.webview.utils.Constants
-import kotlinx.coroutines.MainScope
 
 class WebPageActivity : AppCompatActivity() {
     private lateinit var binding: ActivityWebPageBinding

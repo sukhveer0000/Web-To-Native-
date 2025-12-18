@@ -3,10 +3,8 @@ package com.kabir.webview.viewmodel
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModelProvider
 import com.kabir.webview.repository.WebUrlRepository
 import com.kabir.webview.room.WebPage
-import com.kabir.webview.room.WebUrlDao
 import com.kabir.webview.room.WebUrlDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
