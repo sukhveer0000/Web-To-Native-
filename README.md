@@ -27,10 +27,10 @@ A robust Android application that provides a seamless web browsing experience, s
 - [x] Code Optimization & Repository Pattern
 
 ## 📸 Screenshots
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/904e217b-23bb-4d14-b287-e1d2a8ad982e" width="220"/>
+<p align="left">
+  <img src="https://github.com/user-attachments/assets/684d8115-a05d-4b9a-8674-bb320d451b9e" width="220"/>  
   <img src="https://github.com/user-attachments/assets/b2ca4d88-ff16-42c6-8d01-ebb9c113c939" width="220"/>
-  <img src="https://github.com/user-attachments/assets/684d8115-a05d-4b9a-8674-bb320d451b9e" width="220"/>
+  <img src="https://github.com/user-attachments/assets/904e217b-23bb-4d14-b287-e1d2a8ad982e" width="220"/>
 </p>
 
 ## ⚙️ How to Run
