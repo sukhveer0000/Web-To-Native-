@@ -45,7 +45,7 @@ A robust Android application that provides a seamless web browsing experience, s
 
 To quickly test the application without building the code, follow these steps:
 
-1. **Download the APK:** Click on the `Pramod_Webview_Task.apk` file present in the root directory of this repository and download it.
+1. **Download the APK:** Click on the `web-to-native.apk` file present in the root directory of this repository and download it.
 2. **Transfer to Phone:** Move the APK to your Android device (if downloaded on a PC).
 3. **Install:** Tap on the APK file to begin installation.
 
