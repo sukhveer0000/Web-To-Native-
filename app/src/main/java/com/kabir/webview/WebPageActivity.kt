@@ -73,8 +73,6 @@ class WebPageActivity : AppCompatActivity() {
 
                 val intent = Intent(this@WebPageActivity, MainActivity::class.java)
 
-                //FLAG_ACTIVITY_CLEAR_TOP return the existing mainActivity
-                //And clear all other other activities from the backStack
                 intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
                 intent.putExtra(Constants.CLEAR_TEXT,true)
                 startActivity(intent)

@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.kabir.webview.adapter.UrlHistoryAdapter
 import com.kabir.webview.databinding.ActivityHistoryBinding
 import com.kabir.webview.viewmodel.HistoryViewModel
-import com.kabir.webview.viewmodel.WebUrlViewModel
 
 class HistoryActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHistoryBinding

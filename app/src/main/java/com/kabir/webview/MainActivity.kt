@@ -48,7 +48,6 @@ class MainActivity : AppCompatActivity() {
 
         binding.openUrlButton.setOnClickListener {
             openUrl()
-
         }
 
     }
@@ -101,11 +100,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        //checking that we coming by close button
+
         val shouldClear = intent.getBooleanExtra(Constants.CLEAR_TEXT, false)
         if (shouldClear) {
             binding.enterUrl.text?.clear()
-            //removing this extra so that if screen rotated and edit field should not clear
             intent.removeExtra(Constants.CLEAR_TEXT)
         }
 
