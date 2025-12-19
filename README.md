@@ -38,3 +38,21 @@ A robust Android application that provides a seamless web browsing experience, s
 2. Open in Android Studio.
 3. Sync Gradle and run the app.
 4. Set your Beeceptor URL in `Constants.kt` if needed.
+
+---
+
+## 📥 How to Install & Test
+
+To quickly test the application without building the code, follow these steps:
+
+1. **Download the APK:** Click on the `Pramod_Webview_Task.apk` file present in the root directory of this repository and download it.
+2. **Transfer to Phone:** Move the APK to your Android device (if downloaded on a PC).
+3. **Install:** Tap on the APK file to begin installation.
+
+> [!CAUTION]
+> **Play Protect Warning:** Since this is a **Debug Build**, Android might show a "Blocked by Play Protect" popup. Please click on **"Install Anyway"** to proceed with the installation.
+
+> [!IMPORTANT]
+> **Internet Access:** Ensure your device has an active internet connection for the WebView to load pages and for the API synchronization to work correctly.
+
+---
